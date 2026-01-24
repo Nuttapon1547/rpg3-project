@@ -22,10 +22,10 @@ public class CharAnimation : MonoBehaviour
         switch (c.State)
         {
             case CharState.Idle:
-                c.Anim.SetBool("Idle", true);
+                c.Anim.SetBool("IsIdle", true);
                 break;
             case CharState.Walk:
-                c.Anim.SetBool("Walk", true);
+                c.Anim.SetBool("IsWalk", true);
                 break;
 
         }
