@@ -2014,9 +2014,9 @@ GameObject:
   - component: {fileID: 1624585065203816391}
   - component: {fileID: 1876106570792334768}
   - component: {fileID: 2816381048191648557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character_Hero_Knight_Male_FixedScale 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

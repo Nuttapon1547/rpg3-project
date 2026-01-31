@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4267456582613511643}
   - component: {fileID: 6977458680011181999}
   - component: {fileID: 7224750471765795807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character_Tormented_Soul 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
