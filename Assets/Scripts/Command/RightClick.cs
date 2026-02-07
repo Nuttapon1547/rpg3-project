@@ -38,8 +38,22 @@ public class RightClick : MonoBehaviour
                 case "Ground":
                     CommandToWalk(hit, leftClick.CurChar);
                     break;
+                case "Enemy":
+                    CommandToAttack(hit, leftClick.CurChar);
+                    break;
             }
         } 
+    }
+
+    private void CommandToAttack(RaycastHit hit, Character c)
+    {
+        if (c == null)
+            return;
+        Character target = hit.collider.GetComponent<Character>();
+        Debug.Log("Attack:" + target);
+
+        if(target != null)
+            c.ToAttackCharacter(target);
     }
     void Update()
     {
