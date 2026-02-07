@@ -193,8 +193,9 @@ public abstract class Character : MonoBehaviour
     public bool IsMyEnemy(string targetTag)
     {
         string myTag = gameObject.tag;
-        if (myTag == "Hero" || myTag == "Player") && targetTag == "Enemy")
-                return true;
+
+        if ((myTag == "Hero" || myTag == "Player") && targetTag == "Enemy")
+            return true;
         
         if(myTag == "Enemy" && (targetTag == "Hero" || targetTag == "Player"))
             return true;
