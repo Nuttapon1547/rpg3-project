@@ -31,9 +31,15 @@ public class PartyManager : MonoBehaviour
         }
         SelectSingleHero(0);
 
-        members[0].MagicSkills.Add(new Magic(0, "Power Glow", 10f, 20, 3f, 1f, 2, 2));
-        members[0].MagicSkills.Add(new Magic(0, "fire Ball", 10f, 35, 3f, 4f, 0, 1));
+        members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicDatas[0]));
+        members[1].MagicSkills.Add(new Magic(VFXManager.instance.MagicDatas[1]));
 
+        InventoryManager.Instance.AddItem(members[0], 0);
+        InventoryManager.Instance.AddItem(members[0], 1);
+
+        InventoryManager.Instance.AddItem(members[1], 0);
+        InventoryManager.Instance.AddItem(members[1], 1);
+        InventoryManager.Instance.AddItem(members[1], 2);
         UIManager.instance.ShowMagicToggles();
     }
     private void Update()
