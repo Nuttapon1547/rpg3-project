@@ -1060,6 +1060,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackAI
   curEnemy: {fileID: 0}
+--- !u!114 &206803927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6977458680011181999, guid: cc44a818e3b1fff469ce52788db92fe7, type: 3}
+  m_PrefabInstance: {fileID: 738616318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206803918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c8449d5b2f014ca8da49efe33dc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &211277055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2867,7 @@ GameObject:
   - component: {fileID: 425604557}
   - component: {fileID: 425604558}
   - component: {fileID: 425604559}
+  - component: {fileID: 425604560}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2957,11 +2969,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395dad1864447f74ea9f1e170ceddae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  itemPrefabs: []
+  itemPrefabs:
+  - {fileID: 2183001951008068311, guid: d8e5f069b7d40a349a4fa42438b0ee56, type: 3}
+  - {fileID: 157152, guid: 6bff4eb1af31dd344913ab900057e220, type: 3}
   itemData:
   - {fileID: 11400000, guid: 45f743cc6c5e4eb498da473f4a703a29, type: 2}
   - {fileID: 11400000, guid: 5308ed5554ec218408ac96df0c9cc77d, type: 2}
   - {fileID: 11400000, guid: 781188cb2fc64174aaa1deea9b76154e, type: 2}
+--- !u!114 &425604560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425604553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f35e6f93bc3814e8b66ae4860d393c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  monsters:
+  - {fileID: 206803927}
 --- !u!1 &431635036
 GameObject:
   m_ObjectHideFlags: 0
