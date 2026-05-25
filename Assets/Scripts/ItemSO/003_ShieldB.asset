@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1b4b2df56f382b408eeda8f242043b9, type: 3}
-  m_Name: 001_SwordA
+  m_Name: 003_ShieldB
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  id: 1
-  itemName: SwordA
-  type: 4
-  icon: {fileID: 21300000, guid: 6a28e197313f0a948b2c519e7a5de45a, type: 3}
-  power: 20
-  prefabID: 0
+  id: 3
+  itemName: Shield B
+  type: 2
+  icon: {fileID: 21300000, guid: ffa8ac7ad4041394a95e10212b29c7da, type: 3}
+  power: 6
+  prefabID: 3
