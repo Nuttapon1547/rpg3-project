@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b4b2df56f382b408eeda8f242043b9, type: 3}
+  m_Name: 004_MagicPotion
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  id: 4
+  itemName: Magic Potion
+  type: 0
+  icon: {fileID: 21300000, guid: bc8503a08f85a7c449fc4005e4cf45c8, type: 3}
+  power: 20
+  prefabID: 4
