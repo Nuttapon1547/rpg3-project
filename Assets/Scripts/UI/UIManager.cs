@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class UIManager : MonoBehaviour
@@ -38,6 +39,54 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private int curSlotId;
+
+    [SerializeField]
+    private GameObject downPanel;
+
+    [SerializeField]
+    private GameObject npcDialoguePanel;
+
+    [SerializeField]
+    private Image npcImage;
+
+    [SerializeField]
+    private TMP_Text npcNameText;
+
+    [SerializeField]
+    private TMP_Text dialogueText;
+
+    [SerializeField]
+    private int index;
+
+    [SerializeField]
+    private GameObject btnNext;
+
+    [SerializeField]
+    private TMP_Text btnNextText;
+
+    [SerializeField]
+    private GameObject btnAccept;
+
+    [SerializeField]
+    private TMP_Text btnAcceptText;
+
+    [SerializeField]
+    private GameObject btnReject;
+
+    [SerializeField]
+    private TMP_Text btnRejectText;
+
+    [SerializeField]
+    private GameObject btnFinish;
+
+    [SerializeField]
+    private TMP_Text btnFinishText;
+
+    [SerializeField]
+    private GameObject btnNotFinish;
+
+    [SerializeField]
+    private TMP_Text btnNotFinishText;
 
     public static UIManager instance;
 
@@ -138,7 +187,7 @@ public class UIManager : MonoBehaviour
     public void ClearInventory()
     {
         //Clear Slots
-        for(int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].transform.childCount > 0)
             {
@@ -162,7 +211,7 @@ public class UIManager : MonoBehaviour
 
         Character hero = PartyManager.instance.SelectChars[0];
 
-        for (int i = 0; i < hero.InventoryItems.Length; i++ )
+        for (int i = 0; i < hero.InventoryItems.Length; i++)
         {
             if (hero.InventoryItems[i] != null)
             {
@@ -200,5 +249,145 @@ public class UIManager : MonoBehaviour
         InventoryManager.Instance.DrinkConsummableItem(curItemDrag.Item, curSlotId);
         DeleteItemIcon();
         ToggleItemDialog(false);
+    }
+
+    private void ClearDialogBox()
+    {
+        npcImage.sprite = null;
+
+        npcNameText.text = "";
+        dialogueText.text = "";
+
+        btnNextText.text = "";
+        btnNext.SetActive(false);
+
+        btnAcceptText.text = "";
+        btnAccept.SetActive(false);
+
+        btnRejectText.text = "";
+        btnReject.SetActive(false);
+
+        btnFinishText.text = "";
+        btnFinish.SetActive(false);
+
+        btnNotFinishText.text = "";
+        btnNotFinish.SetActive(false);
+    }
+
+    private void StartQuestDialogue(Quest quest)
+    {
+        dialogueText.text = quest.QuestDialogue[index];
+
+        btnNext.SetActive(true);
+        btnNextText.text = quest.AnswersNext[index];
+
+        btnAccept.SetActive(false);
+        btnReject.SetActive(false);
+
+    }
+
+    private void SetupDialoguePanel(Npc npc)
+    {
+        index = 0;
+
+        npcImage.sprite = npc.AvatarPic;
+        npcNameText.text = npc.CharName;
+
+        Quest inProgressQuest = QuestManager.instance.CheckForQUest(npc, QuestStatus.InProgress);
+
+        if (inProgressQuest != null)
+        {
+            Debug.Log($"in-progress: {inProgressQuest}");
+            dialogueText.text = inProgressQuest.QuestionInProgress;
+
+            bool hasItem = QuestManager.instance.CheckIfFinishQuest();
+            Debug.Log(hasItem);
+
+            if (hasItem)
+            {
+                btnFinishText.text = inProgressQuest.AnswerFinish;
+                btnFinish.SetActive(true);
+            }
+            else
+            {
+                btnNotFinishText.text = inProgressQuest.AnswerNotFinish;
+                btnNotFinish.SetActive(true);
+            }
+        }
+        else
+        {
+            Quest newQuest = QuestManager.instance.CheckForQUest(npc, QuestStatus.New);
+
+            if (newQuest != null)
+                StartQuestDialogue(newQuest);
+        }
+    }
+
+    private void ToggleDialogueBox(bool flag)
+    {
+        downPanel.SetActive(!flag);
+        npcDialoguePanel.SetActive(flag);
+        togglePauseUnpause.isOn = flag;
+    }
+
+    public void PrepareDialogueBox(Npc npc)
+    {
+        ClearDialogBox();
+        SetupDialoguePanel(npc);
+        ToggleDialogueBox(true);
+    }
+
+    public void AnswerNext()
+    {
+        index++;
+        dialogueText.text = QuestManager.instance.NextDialogue(index);
+
+        if (QuestManager.instance.CheckLastDialogue(index))
+        {
+            btnNext.SetActive(false);
+
+            btnAcceptText.text = QuestManager.instance.CurQuest.AnswersAccept;
+            btnAccept.SetActive(true);
+
+            btnRejectText.text = QuestManager.instance.CurQuest.AnswersReject;
+            btnReject.SetActive(true);
+        }
+        else
+        {
+            btnNext.SetActive(true);
+            btnNextText.text = QuestManager.instance.CurQuest.AnswersNext[index];
+        }
+    }
+
+    public void AnswerReject()
+    {
+        QuestManager.instance.RejectQuest();
+        ToggleDialogueBox(false);
+    }
+
+    public void AnswerAccept()
+    {
+        QuestManager.instance.AcceptQuest();
+        ToggleDialogueBox(false);
+    }
+
+    public void AnswerFinish()
+    {
+        Debug.Log("Can Finish Quest");
+        bool success = QuestManager.instance.DeliverItem();
+        if (success)
+        {
+            if (QuestManager.instance.NpcGiveReward())
+            {
+                Debug.Log("Quest Completed");
+                ToggleDialogueBox(false);
+            }
+        }
+    }
+
+    public void AnswerNotFinish()
+    {
+        Debug.Log("Cannot Finish Quest");
+        ToggleDialogueBox (false);
     }
 }

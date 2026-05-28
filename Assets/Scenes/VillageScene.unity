@@ -730,7 +730,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 71517541}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655028352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AnswerNotFinish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &71517541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3628,6 +3640,7 @@ MonoBehaviour:
   - {fileID: 2073854561}
   - {fileID: 599924924}
   selectChars: []
+  questList: []
 --- !u!114 &425604558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3922,7 +3935,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 436846791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655028352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AnswerAccept
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &436846791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4534,7 +4559,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 607004629}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655028352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AnswerReject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &607004629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6850,7 +6887,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 889430190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655028352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AnswerNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &889430190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9872,7 +9921,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1253044769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655028352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AnswerFinish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1253044769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12849,6 +12910,22 @@ MonoBehaviour:
   - {fileID: 367190203}
   curItemDrag: {fileID: 0}
   curSlotId: 0
+  downPanel: {fileID: 1521875641}
+  npcDialoguePanel: {fileID: 651355264}
+  npcImage: {fileID: 692905128}
+  npcNameText: {fileID: 23202523}
+  dialogueText: {fileID: 1370141587}
+  index: 0
+  btnNext: {fileID: 889430187}
+  btnNextText: {fileID: 1623595992}
+  btnAccept: {fileID: 436846788}
+  btnAcceptText: {fileID: 788789306}
+  btnReject: {fileID: 607004626}
+  btnRejectText: {fileID: 987241920}
+  btnFinish: {fileID: 1253044766}
+  btnFinishText: {fileID: 2018409732}
+  btnNotFinish: {fileID: 71517538}
+  btnNotFinishText: {fileID: 168771862}
 --- !u!114 &1655028353
 MonoBehaviour:
   m_ObjectHideFlags: 0
