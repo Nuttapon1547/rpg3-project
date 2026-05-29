@@ -62,6 +62,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField]
     protected int attackDamage = 3;
+    public int AttackDamage { get { return attackDamage; } }
 
     [SerializeField]
     protected float findingRange = 20f;
@@ -102,6 +103,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField]
     protected int defensePower = 0;
+    public int DefensePower { get { return defensePower;  } }
 
     protected VFXManager vfxManager;
     protected UIManager uiManager;
